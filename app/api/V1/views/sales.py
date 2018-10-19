@@ -21,3 +21,6 @@ class PostSale(Resource):
 
 
 class GetAllSales(Resource):
+    def get(self):
+        result = Sale.get_all_sales()
+        return result
