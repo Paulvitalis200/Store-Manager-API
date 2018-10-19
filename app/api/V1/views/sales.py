@@ -5,3 +5,16 @@ from app.api.V1.models import Sale
 
 
 salesList = []
+
+
+class PostSale(Resource):
+
+    def post(self):
+        data = request.get_json()
+        name = data['name']
+        price = data['price']
+        sale = Sale.create_sale_record(name, price)
+        return {'message': 'Sale posted succesfully',
+                'salerecord': sale,
+                'status': 'ok'
+                }, 201
