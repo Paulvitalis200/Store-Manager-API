@@ -38,6 +38,7 @@ class GetAllProducts(Resource):
 
 class GetEachProduct(Resource):
 
+    #Both attendant and store owner can get an individual product
     def get(self, id):
         try:
             result = Product.get_each_product(id)
