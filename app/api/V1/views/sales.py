@@ -18,3 +18,6 @@ class PostSale(Resource):
                 'salerecord': sale,
                 'status': 'ok'
                 }, 201
+
+
+class GetAllSales(Resource):
