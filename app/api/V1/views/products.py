@@ -34,3 +34,15 @@ class GetAllProducts(Resource):
     def get(self):
         result = Product.get_all_products()
         return result
+
+
+class GetEachProduct(Resource):
+
+    def get(self, id):
+        try:
+            result = Product.get_each_product(id)
+        except IndexError:
+            return "The Id does not exist"
+        return result
+
+        # edge case and test
