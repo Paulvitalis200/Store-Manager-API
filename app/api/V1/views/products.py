@@ -44,5 +44,3 @@ class GetEachProduct(Resource):
         except IndexError:
             return "The Id does not exist"
         return result
-
-        # edge case and test
