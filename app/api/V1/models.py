@@ -14,3 +14,7 @@ class Product():
         product = {"id": id, "price": price, "name": name}
         cart.append(product)
         return cart
+
+    # get all product
+    def get_all_products():
+        return cart
