@@ -19,6 +19,6 @@ class Product():
     def get_all_products():
         return cart
 
-    # get each product
+    # store owner and store attendant get each product
     def get_each_product(id):
         return cart[id - 1]
