@@ -30,7 +30,7 @@ class PostProduct(Resource):
 
 
 class GetAllProducts(Resource):
-
+    # Both attendant and store owner can get products
     def get(self):
         result = Product.get_all_products()
         return result
