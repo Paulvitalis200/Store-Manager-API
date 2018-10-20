@@ -9,7 +9,7 @@ GET_EACH_SALE = '/api/v1/sales/1'
 GET_ALL_SALES = '/api/v1/sales'
 
 
-class BaseTest(unittest.TestCase):
+class SalesTest(unittest.TestCase):
   def setUp(self):
     self.app = create_app()
     self.client = self.app.test_client()
