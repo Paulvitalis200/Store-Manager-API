@@ -3,9 +3,12 @@ from flask import request
 from flask_restful import Resource
 from app.api.V1.models import Product
 
+from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt)
+
 
 class PostProduct(Resource):
 
+    @jwt_required
     def post(self):
         data = request.get_json()
         p = ['name', 'price']
@@ -31,6 +34,7 @@ class PostProduct(Resource):
 
 class GetAllProducts(Resource):
     # Both attendant and store owner can get products
+    @jwt_required
     def get(self):
         result = Product.get_all_products()
         return result
@@ -38,7 +42,7 @@ class GetAllProducts(Resource):
 
 class GetEachProduct(Resource):
 
-    #Both attendant and store owner can get an individual product
+    # Both attendant and store owner can get an individual product
     def get(self, id):
         try:
             result = Product.get_each_product(id)

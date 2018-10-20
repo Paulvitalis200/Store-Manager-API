@@ -1,12 +1,15 @@
 from flask import jsonify, request, Blueprint
-
+from passlib.hash import pbkdf2_sha256 as sha256
 from flask_restful import Resource, Api
 
 
 cart = []
 salesList = []
+userList = []
 
 # Fixed Bug
+
+
 class Sale():
     # post product by admin
     def create_sale_record(name, price):
@@ -39,3 +42,34 @@ class Product():
     # store owner and store attendant get each product
     def get_each_product(id):
         return cart[id - 1]
+
+
+class UserModel():
+        # create user
+    def create_user():
+        data = request.get_json()
+        id = len(userList) + 1
+        username = data['username']
+        password = UserModel.generate_hash(data['password'])
+        user = {
+            'username': username,
+            'password': password
+        }
+        userList.append(user)
+        return user
+
+    @staticmethod
+    def generate_hash(password):
+        return sha256.hash(password)
+
+    @staticmethod
+    def verify_hash(password, hash):
+        return sha256.verify(password, hash)
+
+    # get all product store owner and store attendant
+    # def get_all_users():
+    #     return userList
+
+    # # store owner and store attendant get each product
+    # def get_each_user(id):
+    #     return userList[id - 1]
