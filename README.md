@@ -22,10 +22,15 @@ open localhost
 # Features
 
 Store attendant can search and add products to buyer’s cart.
+
 Store attendant can see his/her sale records but can’t modify them.
+
 App should show available products, quantity and price.
+
 Store owner can see sales and can filter by attendants.
+
 Store owner can add, modify and delete products.
+
 Store owner can give admin rights to a store attendant.
 
 
@@ -40,5 +45,6 @@ POST /products| http://127.0.0.1:5000/api/v1/products | Create a product
 POST /sales | http://127.0.0.1:5000/api/v1/sales | Create a sale order
 
 #TESTING THE APP
+
 Test using Postman
 
