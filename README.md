@@ -38,7 +38,7 @@ Store owner can give admin rights to a store attendant.
 Method | URL | DESCRIPTION
 -------|-----|------------
 GET /products| http://127.0.0.1:5000/api/v1/products | Fetch all products
-GET /products/productId |http://127.0.0.1:5000/api/v1/products/<int:productId>| Fetch a single product record
+GET /products/productId |http://127.0.0.1:5000/api/v1/products/<int: productId>| Fetch a single product record
 GET /sales |http://127.0.0.1:5000/api/v1/sales|Fetch all sale records Get all sale records.
 GET /sales/saleId | http://127.0.0.1:5000/api/v1/sales/<int: salesId> | Fetch a single sale record
 POST /products| http://127.0.0.1:5000/api/v1/products | Create a product
