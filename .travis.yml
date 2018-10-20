@@ -1,18 +1,15 @@
-sudo: true
 
 language: python
 python:
-  - "3.5"
-  - "2.7"
+  - "3.7"
 
   # command to install dependencies
   install:
     - pip install -r requirements.txt
-    - pip install coveralls
 
   # command to run tests
   script:
-    pytest --with-coverage --cover-package=app
+    pytest --cov=app
 
 
   after_success:

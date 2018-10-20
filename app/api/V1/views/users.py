@@ -9,11 +9,7 @@ class UserRegistration(Resource):
     def post(self):
         data = request.get_json()
 
-        for users in userList:
-            if users['username'] in users:
-                return {'message': 'User {} already exists. Try another username'. format(data['username'])}
-
-        new_user = UserModel.create_user()
+        UserModel.create_user()
 
         try:
             access_token = create_access_token(identity=data['username'])
@@ -52,13 +48,8 @@ class UserLogin(Resource):
             else:
                 return {'message': 'User doesn\'t exist'}
 
-    # Get all users
-
-    def get(self):
-        result = UserModel.get_all_users()
-        return result
-
     # Get each user
+    @jwt_required
     def get(self, id):
         try:
             result = User.get_each_user(id)
@@ -68,8 +59,17 @@ class UserLogin(Resource):
 
 
 class GetAllUsers(Resource):
+
+    @jwt_required
     def get(self):
         return userList
+
+
+class GetEachUser(Resource):
+
+    @jwt_required
+    def get(self, id):
+        return userList[id - 1]
 
 
 # class TokenRefresh(Resource):

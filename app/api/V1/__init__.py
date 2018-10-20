@@ -3,7 +3,7 @@ from flask_restful import Api
 
 from .views.products import PostProduct, GetAllProducts, GetEachProduct
 from .views.sales import PostSale, GetAllSales, GetEachSale
-from .views.users import UserRegistration, UserLogin, GetAllUsers
+from .views.users import UserRegistration, UserLogin, GetAllUsers, GetEachUser
 
 productsale_api = Blueprint('resources.products', __name__, url_prefix="/api/v1")
 api = Api(productsale_api)
@@ -59,4 +59,10 @@ api.add_resource(
     GetAllUsers,
     '/users',
     endpoint='users'
+)
+
+api.add_resource(
+    GetEachUser,
+    '/users/<int:id>',
+    endpoint='user'
 )
