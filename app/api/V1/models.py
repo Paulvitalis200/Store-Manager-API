@@ -15,7 +15,7 @@ class Product():
         cart.append(product)
         return cart
 
-    # get all product
+    # get all product store owner and store attendant
     def get_all_products():
         return cart
 
