@@ -9,13 +9,14 @@ class UserRegistration(Resource):
     def post(self):
         data = request.get_json()
 
-        UserModel.create_user()
-
         try:
+            UserModel.create_user()
+            password = UserModel.generate_hash(data['password'])
             access_token = create_access_token(identity=data['username'])
             refresh_token = create_refresh_token(identity=data['username'])
             return {
                 'message': 'User {} was created'.format(data['username']),
+                'password': password,
                 'access_token': access_token,
                 'refresh_token': refresh_token
             }
@@ -52,7 +53,7 @@ class UserLogin(Resource):
     @jwt_required
     def get(self, id):
         try:
-            result = User.get_each_user(id)
+            result = UserModel.get_each_user(id)
         except IndexError:
             return "The Id does not exist"
         return result
@@ -72,9 +73,9 @@ class GetEachUser(Resource):
         return userList[id - 1]
 
 
-# class TokenRefresh(Resource):
-#     @jwt_refresh_token_required
-#     def post(self):
-#         current_user = get_jwt_identity()
-#         access_token = create_access_token(identity=current_user)
-#         return {'access_token': access_token}
+class TokenRefresh(Resource):
+    @jwt_refresh_token_required
+    def post(self):
+        current_user = get_jwt_identity()
+        access_token = create_access_token(identity=current_user)
+        return {'access_token': access_token}
