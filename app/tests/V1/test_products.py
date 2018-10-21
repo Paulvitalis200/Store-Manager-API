@@ -11,16 +11,23 @@ GET_ALL_PRODUCTS = '/api/v1/products'
 class ProductTest(unittest.TestCase):
   def setUp(self):
     """Initialize app and define test variables"""
-    self.app = create_app()
+    self.app = create_app('testing')
     self.client = self.app.test_client()
     self.products = {
         "name": "Playstation 4",
-        "price": 40000
+        "price": 40000,
+        "quantity": 3
     }
+    self.empty_products = {"name": "", "quantity": 5, "price": 3000}
+    self.empty_price = {"name": "xbox", "quantity": 5, "price": ""}
+    self.empty_quantity = {"name": "xbox", "quantity": "", "price": 5000}
 
   def login(self):
-    res = self.client.post('/api/v1/login', data=json.dumps(
-        dict(username="Paul", password="1234")),
+    res = self.client.post(
+        '/api/v1/login',
+        data=json.dumps(
+            dict(email="vitalispaul48@live.com", password="manu2012")
+        ),
         content_type='application/json')
     return json.loads(res.get_data().decode("UTF-8"))['access_token']
 
@@ -32,37 +39,38 @@ class ProductTest(unittest.TestCase):
                            headers=dict(Authorization="Bearer " + self.login())
                            )
     data = json.loads(res.get_data().decode("UTF-8"))
-    self.assertTrue(data['message'] == 'product created succesfully')
+    self.assertTrue(data['message'] == 'product created successfully')
     self.assertEqual(res.status_code, 201)
 
-  # def test_get_all_products(self):
-  #     res = self.client.post(POST_PRODUCT_URL,
-  #                            content_type='application/json',
-  #                            headers=dict(Authorization="Bearer " + self.login()),
-  #                            data=json.dumps(self.products))
-  #     self.assertEqual(res.status_code, 201)
-  #     res = self.client.get(GET_ALL_PRODUCTS,
-  #                           data=json.dumps(self.products),
-  #                           headers=dict(Authorization="Bearer " + self.login()),
-  #                           content_type='application/json')
+  def test_get_all_products(self):
+    res = self.client.post(POST_PRODUCT_URL,
+                           content_type='application/json',
+                           headers=dict(Authorization="Bearer " + self.login()),
+                           data=json.dumps(self.products))
+    self.assertEqual(res.status_code, 201)
+    res = self.client.get(GET_ALL_PRODUCTS,
+                          data=json.dumps(self.products),
+                          headers=dict(Authorization="Bearer " + self.login()),
+                          content_type='application/json')
 
-  #     self.assertEqual(res.status_code, 200)
-  #     self.assertIn("Paul", str(res.data))
+    self.assertEqual(res.status_code, 200)
+    self.assertIn("Playstation 4", str(res.data))
 
   # def test_get_each_product(self):
-  #     """Test API can get a single record by using it's id."""
-  #     res = self.client.post(POST_PRODUCT_URL,
-  #                            content_type='application/json',
-  #                            headers=dict(Authorization="Bearer " + self.login()),
-  #                            data=json.dumps(self.products))
-  #     self.assertEqual(res.status_code, 201)
-  #     res = self.client.get(GET_SINGLE_PRODUCT,
-  #                           data=json.dumps(self.products),
-  #                           headers=dict(Authorization="Bearer " + self.login()),
-  #                           content_type='application/json')
-  #     data = json.loads(res.get_data().decode("UTF-8"))
-  #     self.assertEqual(res.status_code, 200)
-  #     self.assertIn('Paul', str(res.data))
+  #   """Test API can get a single record by using it's id."""
+  #   '''Add a product'''
+  #   res = self.client.post(POST_PRODUCT_URL,
+  #                          content_type='application/json',
+  #                          headers=dict(Authorization="Bearer " + self.login()),
+  #                          data=json.dumps(self.products))
+  #   self.assertEqual(res.status_code, 201)
+  #   res = self.client.get(GET_SINGLE_PRODUCT,
+  #                         data=json.dumps(self.products),
+  #                         headers=dict(Authorization="Bearer " + self.login()),
+  #                         content_type='application/json')
+  #   data = json.loads(res.get_data().decode("UTF-8"))
+  #   self.assertEqual(res.status_code, 200)
+  #   self.assertIn('Playstation 4', str(res.data))
 
 
 if __name__ == "__main__":
