@@ -5,6 +5,7 @@ from .views.products import PostProduct, GetAllProducts, GetEachProduct
 from .views.sales import PostSale, GetAllSales, GetEachSale
 from .views.users import UserRegistration, UserLogin, GetAllUsers, GetEachUser
 
+
 productsale_api = Blueprint('resources.products', __name__, url_prefix="/api/v1")
 api = Api(productsale_api)
 
@@ -22,7 +23,7 @@ api.add_resource(
 
 api.add_resource(
     GetEachProduct,
-    '/products/<int:id>',
+    '/products/<int:product_id>',
     endpoint="each")
 
 api.add_resource(
@@ -39,7 +40,7 @@ api.add_resource(
 
 api.add_resource(
     GetEachSale,
-    '/sales/<int:id>',
+    '/sales/<int:sale_id>',
     endpoint='eachsale'
 )
 
