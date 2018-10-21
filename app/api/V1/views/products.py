@@ -27,3 +27,10 @@ class PostProduct(Resource):
                 'products': result,
                 'status': 'ok'
                 }, 201
+
+
+class GetAllProducts(Resource):
+
+    def get(self):
+        result = Product.get_all_products()
+        return result
