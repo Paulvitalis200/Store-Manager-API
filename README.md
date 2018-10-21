@@ -49,7 +49,15 @@ GET /sales/saleId | http://127.0.0.1:5000/api/v1/sales/<int: salesId> | Fetch a 
 POST /products| http://127.0.0.1:5000/api/v1/products | Create a product
 POST /sales | http://127.0.0.1:5000/api/v1/sales | Create a sale order
 
-#TESTING THE APP
+# TESTING THE APP
 
 Test using Postman
 
+# HEROKU LINK
+http://store-manager-api-2.herokuapp.com
+
+# DOCUMENTATION LINK
+https://storemanagerapi.docs.apiary.io/#
+
+#PIVOTAL TRACKER LINK
+https://www.pivotaltracker.com/n/projects/2203237
