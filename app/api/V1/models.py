@@ -7,6 +7,23 @@ cart = []
 salesList = []
 
 
+class Sale():
+    # post product by admin
+    def create_sale_record(name, price):
+        id = len(salesList) + 1
+        sale = {"id": id, "price": price, "name": name}
+        salesList.append(sale)
+        return salesList
+
+# get all product
+    def get_all_sales():
+        return salesList
+
+# get each product
+    def get_each_sale(id):
+        return salesList[id - 1]
+
+
 class Product():
     # post product by admin
     def create_product(name, price):

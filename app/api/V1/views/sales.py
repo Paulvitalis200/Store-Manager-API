@@ -24,3 +24,9 @@ class GetAllSales(Resource):
     def get(self):
         result = Sale.get_all_sales()
         return result
+
+
+class GetEachSale(Resource):
+    def get(self, id):
+        result = Sale.get_each_sale(id)
+        return result
