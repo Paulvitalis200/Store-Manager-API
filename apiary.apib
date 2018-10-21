@@ -1,0 +1,201 @@
+FORMAT: 1A
+HOST: https://store-manager-api-2.herokuapp.com
+
+# Store manager API
+
+Store Manager is a web application that helps store owners
+manage sales and product inventory records.
+This application is meant for use in a single store.
+
+ENDPOINTS
+**GET /products - Fetch all products Get all available products.**
+**GET /products/productId - Fetch a single product record**
+**GET /sales - Fetch all sale records Get all sale records.**
+**GET /sales/saleId - Fetch a single sale record**
+**POST /products - Create a product**
+**POST /sales - Create a sale order**
+**POST /login - Login user**
+**POST /register - Register user**
+
+
+### Create a Product[POST]
+
+You may post a product
+
++ Request (application/json)
+
+        
+            {
+                "name": "Shoes",
+                "price": 300
+            }
+        
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: api/v1/products
+
+    + Body
+
+            
+               {
+                "name": "Shoes",
+                "price": 300
+                }
+         
+            
+            
+### Get all Products [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1
+                "name": "Shoes",
+                "price": 300
+            },
+            {
+                "id": 2
+                "name": "Clothes",
+                "price": 1000
+            }
+        ]
+        
+### Get single product [GET]
+
+ + Headers
+
+            Location: api/v1/products/<productid>
+            
++ Response 200 (application/json)
+
+        
+            {
+                "id": 1
+                "name": "Shoes",
+                "price": 300
+            }
+            
+### Create a sale recrod[POST]
+
+You may post a sale record
+
++ Request (application/json)
+
+        
+            {
+                "name": "Shoes",
+                "price": 300
+            }
+        
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: api/v1/sales
+
+    + Body
+
+            
+               {
+                "name": "Shoes",
+                "price": 300
+                }
+         
+            
+            
+### Get all sales records [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1
+                "name": "Shoes",
+                "price": 300
+            },
+            {
+                "id": 2
+                "name": "Clothes",
+                "price": 1000
+            }
+        ]
+        
+### Get single sale records [GET]
+
+ + Headers
+
+            Location: api/v1/sales/<salesid>
+            
++ Response 200 (application/json)
+
+        
+            {
+                "id": 1
+                "name": "Shoes",
+                "price": 300
+            }
+            
+        
+
+### Register a user[POST]
+
+You may register a user
+
++ Request (application/json)
+
+        
+            {
+                "username": "Paul",
+                "password": "paul200
+            }
+        
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: api/v1/register
+
+    + Body
+
+            
+               {
+                "username": "Paul",
+                "password": "paul200"
+                }
+         
+            
+            
+### Log in user [POST]
+
++ Response 200 (application/json)
+
+        
+
++ Request (application/json)
+
+        
+            {
+                "username": "Paul",
+                "password": "paul200
+            }
+        
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: api/v1/login
+
+    + Body
+
+            
+               {
+                "username": "Paul",
+                "password": "paul200"
+                }

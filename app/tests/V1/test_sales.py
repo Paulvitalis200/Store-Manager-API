@@ -9,11 +9,12 @@ GET_EACH_SALE = '/api/v1/sales/1'
 GET_ALL_SALES = '/api/v1/sales'
 
 
-class BaseTest(unittest.TestCase):
-    def setUp(self):
-        self.app = create_app()
-        self.client = self.app.test_client()
-        self.sales = {"name": "Shoes", "price": 2000}
+
+class SalesTest(unittest.TestCase):
+  def setUp(self):
+    self.app = create_app()
+    self.client = self.app.test_client()
+    self.sales = {"name": "Shoes", "price": 2000}
 
     def login(self):
         res = self.client.post(

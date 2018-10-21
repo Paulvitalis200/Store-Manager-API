@@ -8,7 +8,7 @@ GET_SINGLE_PRODUCT = '/api/v1/products/1'
 GET_ALL_PRODUCTS = '/api/v1/products'
 
 
-class BaseTest(unittest.TestCase):
+class ProductTest(unittest.TestCase):
     def setUp(self):
         """Initialize app and define test variables"""
         self.app = create_app()
