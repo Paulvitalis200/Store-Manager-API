@@ -9,9 +9,8 @@ install:
 
 # command to run tests
 script:
-  - pytest
-  - pytest --cov-report term-missing --cov=application
+  - pytest --cov-report term-missing --cov=app
 
 
 after_success:
-  - "coveralls"
+  - coveralls
