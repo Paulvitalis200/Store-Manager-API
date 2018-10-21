@@ -21,7 +21,7 @@ class PostProduct(Resource):
         quantity = args.get('quantity')
 
         if not name:
-            return make_response(jsonify({'message': 'Product name can not be empty'}), 400)
+            return make_response(jsonify({'message': 'Product name cannot be empty'}), 400)
         if not price:
             return make_response(jsonify({'message': 'Price of product cannot be empty'}), 400)
         if not quantity:

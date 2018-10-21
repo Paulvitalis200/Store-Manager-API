@@ -13,33 +13,28 @@ class PostSale(Resource):
 
     parser = reqparse.RequestParser()
     parser.add_argument('description', required=True, help='Sale description  cannot be blank', type=str)
-    parser.add_argument('items', required=True, help=' items cannot be blank')
-    parser.add_argument('total', required=True, help='Total cannot be blank', type=int)
+    parser.add_argument('items', required=True, help='Items cannot be blank')
 
     @jwt_required
     def post(self):
         args = PostSale.parser.parse_args()
         description = args.get('description').strip()
         items = args.get('items')
-        total = 400
 
         # Test inputs
         if not description:
-            return make_response(jsonify({'message': 'Sale description  can not be empty'}), 400)
+            return make_response(jsonify({'message': 'Sale description can not be empty'}), 400)
         if not items:
-            return make_response(jsonify({'message': 'Sale items  can not be empty'}), 400)
-        if not total:
-            return make_response(jsonify({'message': 'Total cannot be empty'}), 400)
+            return make_response(jsonify({'message': 'Sale items can not be empty'}), 400)
 
         try:
 
-            sale = Sale.create_sale(description, items, total)
+            sale = Sale.create_sale(description, items)
 
             return {
                 'message': 'Sale record created successfully!',
                 'sales': sale,
                 'status': 'ok'
-
             }, 201
 
         except Exception as e:

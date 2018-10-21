@@ -96,13 +96,13 @@ class Sale():
 
     # create a sale record- store attendant
     @staticmethod
-    def create_sale(description, items, total):
+    def create_sale(description, items):
         id = len(cart) + 1
         order = {
             'id': id,
             'description': description,
             'items': items,
-            'total': total
+
         }
         cart.append(order)
         return cart
