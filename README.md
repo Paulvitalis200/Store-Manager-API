@@ -22,7 +22,7 @@ Clone the repo to your local machine.
 
 Navigate to the project directory.
 
-Install your virtual environment by doing `virtual env`.
+Install your virtual environment by doing `pip install virtualenv`.
 
 Activate the virtual environment on mac by `$ source env\bin\activate`
 
