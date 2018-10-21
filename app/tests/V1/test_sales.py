@@ -62,21 +62,21 @@ class ProductTest(unittest.TestCase):
     self.assertTrue(resp_data['message'] == 'Sales records retrieved successfully!')
     self.assertEqual(res.status_code, 200)
 
-  # def test_get_each_product(self):
-  #   """Test API can get a single record by using it's id."""
-  #   '''Add a product'''
-  #   res = self.client.post(POST_PRODUCT_URL,
-  #                          content_type='application/json',
-  #                          headers=dict(Authorization="Bearer " + self.login()),
-  #                          data=json.dumps(self.products))
-  #   self.assertEqual(res.status_code, 201)
-  #   res = self.client.get(GET_SINGLE_PRODUCT,
-  #                         data=json.dumps(self.products),
-  #                         headers=dict(Authorization="Bearer " + self.login()),
-  #                         content_type='application/json')
-  #   data = json.loads(res.get_data().decode("UTF-8"))
-  #   self.assertEqual(res.status_code, 200)
-  #   self.assertIn('Playstation 4', str(res.data))
+  def test_get_each_product(self):
+    """Test API can get a single record by using it's id."""
+    '''Add a product'''
+    res = self.client.post(POST_SALE_URL,
+                           content_type='application/json',
+                           headers=dict(Authorization="Bearer " + self.login()),
+                           data=json.dumps(self.sales))
+    self.assertEqual(res.status_code, 201)
+    res = self.client.get(GET_EACH_SALE,
+                          data=json.dumps(self.sales),
+                          headers=dict(Authorization="Bearer " + self.login()),
+                          content_type='application/json')
+    data = json.loads(res.get_data().decode("UTF-8"))
+    self.assertEqual(res.status_code, 200)
+    self.assertIn('Playstation 4', str(res.data))
 
 
 if __name__ == "__main__":

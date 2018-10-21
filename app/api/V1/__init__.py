@@ -23,7 +23,7 @@ api.add_resource(
 
 api.add_resource(
     GetEachProduct,
-    '/products/<int:id>',
+    '/products/<int:product_id>',
     endpoint="each")
 
 api.add_resource(
@@ -40,7 +40,7 @@ api.add_resource(
 
 api.add_resource(
     GetEachSale,
-    '/sales/<int:id>',
+    '/sales/<int:sale_id>',
     endpoint='eachsale'
 )
 

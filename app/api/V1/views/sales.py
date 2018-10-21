@@ -62,9 +62,7 @@ class GetEachSale(Resource):
 
     @jwt_required
     def get(self, sale_id):
-
         result = Sale.get_each_sale(sale_id)
-
         return {
             'message': 'Sale record retrieved succesfully!',
             'status': 'ok',

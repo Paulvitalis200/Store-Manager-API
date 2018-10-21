@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, make_response, Blueprint
 
 from flask_restful import Resource, reqparse
-from app.api.V1.models import Product
+from app.api.V1.models import Product, products
 from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt)
 
 
