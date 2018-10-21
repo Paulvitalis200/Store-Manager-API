@@ -27,7 +27,8 @@ You may post a product
         
             {
                 "name": "Shoes",
-                "price": 300
+                "price": 300, 
+                "quantity": 3
             }
         
 
@@ -42,8 +43,9 @@ You may post a product
             
                {
                 "name": "Shoes",
-                "price": 300
-                }
+                "price": 300, 
+                "quantity": 3
+            }
          
             
             
@@ -55,12 +57,14 @@ You may post a product
             {
                 "id": 1
                 "name": "Shoes",
-                "price": 300
+                "price": 300,
+                "quantity": 3
             },
             {
                 "id": 2
                 "name": "Clothes",
-                "price": 1000
+                "price": 1000,
+                "quantity": 3
             }
         ]
         
@@ -76,7 +80,8 @@ You may post a product
             {
                 "id": 1
                 "name": "Shoes",
-                "price": 300
+                "price": 300,
+                "quantity": 3
             }
             
 ### Create a sale recrod[POST]
@@ -86,10 +91,12 @@ You may post a sale record
 + Request (application/json)
 
         
-            {
-                "name": "Shoes",
-                "price": 300
-            }
+           {
+            
+            'description': "Piano black",
+            'items': "Playstation",
+
+        }
         
 
 + Response 201 (application/json)
@@ -102,9 +109,9 @@ You may post a sale record
 
             
                {
-                "name": "Shoes",
-                "price": 300
-                }
+            'description': "Piano black",
+            'items': "Playstation",
+        }
          
             
             
@@ -115,13 +122,13 @@ You may post a sale record
         [
             {
                 "id": 1
-                "name": "Shoes",
-                "price": 300
+                "description": "Piano black",
+                "item": "Playstation 4
             },
             {
                 "id": 2
-                "name": "Clothes",
-                "price": 1000
+                "description": "Piano black",
+                "item": "Playstation 4
             }
         ]
         
@@ -136,8 +143,8 @@ You may post a sale record
         
             {
                 "id": 1
-                "name": "Shoes",
-                "price": 300
+                "description": "Piano black",
+                "item": "Playstation 4
             }
             
         
@@ -150,8 +157,10 @@ You may register a user
 
         
             {
-                "username": "Paul",
-                "password": "paul200
+                "username": "Paul200",
+                "email": "vitalispaul49@live.com
+                "password": "paul200",
+                "confirm_password": "paul200"
             }
         
 
@@ -164,10 +173,12 @@ You may register a user
     + Body
 
             
-               {
-                "username": "Paul",
-                "password": "paul200"
-                }
+              {
+                "username": "Paul200",
+                "email": "vitalispaul49@live.com
+                "password": "paul200",
+                "confirm_password": "paul200"
+            }
          
             
             
@@ -181,8 +192,8 @@ You may register a user
 
         
             {
-                "username": "Paul",
-                "password": "paul200
+                "email": "vitalispaul49@live.com
+                "password": "paul200"
             }
         
 
@@ -196,6 +207,6 @@ You may register a user
 
             
                {
-                "username": "Paul",
-                "password": "paul200"
+                "email": "vitalispaul49@live.com
+                "password": "paul200",
                 }
