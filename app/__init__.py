@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Blueprint
 
 
 def create_app():
@@ -6,5 +6,8 @@ def create_app():
 
     from instance.config import Config
     app.config.from_object(Config)
+
+    from .api.V1 import productsale_api as psa
+    app.register_blueprint(psa)
 
     return app
