@@ -6,7 +6,7 @@ from flask_restful import Resource, Api
 cart = []
 salesList = []
 
-
+# Fixed Bug
 class Sale():
     # post product by admin
     def create_sale_record(name, price):
