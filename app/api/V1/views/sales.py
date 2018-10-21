@@ -36,7 +36,7 @@ class PostSale(Resource):
             sale = Sale.create_sale(description, items, total)
 
             return {
-                'message': 'Sale created successfully!',
+                'message': 'Sale record created successfully!',
                 'sales': sale,
                 'status': 'ok'
 

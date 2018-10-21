@@ -17,7 +17,7 @@ class UserTestCase(unittest.TestCase):
         self.client = self.app.test_client()
         self.register_user = {"email": "test@live.com", "password": "123456789", "username": "testuser"}
         self.register_user_empty_email = {"email": "", "password": "123456789", "username": "test"}
-        self.register_user_invalid_email = {"email": "test@live.com", "password": "123456789", "username": "testuser"}
+        self.register_user_invalid_email = {"email": "testlive.com", "password": "123456789", "username": "testuser"}
         self.login_user_empty_email = {"email": "", "password": "123456789"}
         self.login_user_empty_password = {"email": "vitalispaul48@live.com", "password": ""}
         self.register_user_empty_password = {"email": "test@live.com", "password": "", "username": "testuser"}
@@ -75,7 +75,7 @@ class UserTestCase(unittest.TestCase):
         resp_data = json.loads(res_login.data.decode())
         self.assertTrue(resp_data['access_token'])
         self.assertEqual(res_login.status_code, 200)
-        self.assertEqual(resp_data['message'], 'User was logged in succesfully')
+        self.assertEqual(resp_data['message'], 'User logged in succesfully!')
 
     def test_login_empty_email(self):
         """TEST empty email on login"""

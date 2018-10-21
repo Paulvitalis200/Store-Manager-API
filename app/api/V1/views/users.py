@@ -111,7 +111,7 @@ class UserLogin(Resource):
             refresh_token = create_refresh_token(identity=email)
 
             return {
-                'message': 'User was logged in succesfully!',
+                'message': 'User logged in succesfully!',
                 'status': 'ok',
 
                 'access_token': access_token,

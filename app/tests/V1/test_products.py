@@ -39,7 +39,7 @@ class ProductTest(unittest.TestCase):
                            headers=dict(Authorization="Bearer " + self.login())
                            )
     data = json.loads(res.get_data().decode("UTF-8"))
-    self.assertTrue(data['message'] == 'product created successfully')
+    self.assertTrue(data['message'] == 'Product created successfully!')
     self.assertEqual(res.status_code, 201)
 
   def test_get_all_products(self):
