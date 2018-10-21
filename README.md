@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Paulstar200/Store-Manager-API.svg?branch=ch-code-refactor-161366157)](https://travis-ci.org/Paulstar200/Store-Manager-API)
+
+
 # Store-Manager-API
 
 Store Manager is a web application that helps store owners manage sales and product inventory records. This application is meant for use in a single store.
