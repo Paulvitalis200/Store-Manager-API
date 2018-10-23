@@ -9,7 +9,6 @@ class PostSale(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('description', required=True, help='Sale description cannot be blank or integer', type=str)
     parser.add_argument('items', required=True, help='Items cannot be blank', type=str)
-    # parser.add_argument('total', required=True, help=' Sales total cannot be blank or a word', type=int)
 
     @jwt_required
     def post(self):
