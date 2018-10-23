@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Paulstar200/Store-Manager-API.svg?branch=ch-code-refactor-161366157)](https://travis-ci.org/Paulstar200/Store-Manager-API)
 
-[![Coverage Status](https://coveralls.io/repos/github/Paulstar200/Store-Manager-API/badge.svg?branch=ch-badges-161335057)](https://coveralls.io/github/Paulstar200/Store-Manager-API?branch=ch-badges-161335057)
+[![Coverage Status](https://coveralls.io/repos/github/Paulstar200/Store-Manager-API/badge.svg)](https://coveralls.io/github/Paulstar200/Store-Manager-API)
 
 
 # Store-Manager-API
