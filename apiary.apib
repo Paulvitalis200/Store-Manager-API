@@ -17,11 +17,13 @@ ENDPOINTS
 **POST /login - Login user**
 **POST /register - Register user**
 
+To begin, remember to add /api/v1 to the heroku link before inserting the endpoints
 
+https://store-manager-api-2.herokuapp.com/api/v1
 ### Register a user[POST]
 
 You may register a user
-
+https://store-manager-api-2.herokuapp.com/api/v1/register
 + Request (application/json)
 
         
@@ -52,7 +54,7 @@ You may register a user
             
             
 ### Log in user [POST]
-
+https://store-manager-api-2.herokuapp.com/api/v1/login
 + Response 200 (application/json)
 
         
@@ -85,6 +87,8 @@ You may register a user
 
 You may post a product
 
+https://store-manager-api-2.herokuapp.com/api/v1/products
+
 + Request (application/json)
 
         
@@ -114,6 +118,8 @@ You may post a product
             
 ### Get all Products [GET]
 
+https://store-manager-api-2.herokuapp.com/api/v1/products
+
 + Response 200 (application/json)
 
         [
@@ -136,6 +142,7 @@ You may post a product
  + Headers
 
             Location: api/v1/products/<productid>
+            https://store-manager-api-2.herokuapp.com/api/v1/<productid>
             
 + Response 200 (application/json)
 
@@ -150,6 +157,8 @@ You may post a product
 ### Create a sale recrod[POST]
 
 You may post a sale record
+
+https://store-manager-api-2.herokuapp.com/api/v1/sales
 
 + Request (application/json)
 
@@ -178,6 +187,7 @@ You may post a sale record
             
             
 ### Get all sales records [GET]
+https://store-manager-api-2.herokuapp.com/api/v1/sales
 
 + Response 200 (application/json)
 
@@ -199,6 +209,7 @@ You may post a sale record
  + Headers
 
             Location: api/v1/sales/<salesid>
+            https://store-manager-api-2.herokuapp.com/api/v1/sales/<salesid>
             
 + Response 200 (application/json)
 
