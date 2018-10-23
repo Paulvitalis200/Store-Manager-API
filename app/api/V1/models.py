@@ -67,7 +67,7 @@ class Product():
             'quantity': quantity
         }
         products.append(new_product)
-        return products
+        return new_product
 
 # Get all products
     @staticmethod
@@ -93,7 +93,7 @@ class Sale():
             'items': items
         }
         cart.append(order)
-        return cart
+        return order
 
 
 # Get all sales

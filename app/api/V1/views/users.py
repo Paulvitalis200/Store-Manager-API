@@ -66,8 +66,7 @@ class UserRegistration(Resource):
             result = User.create_user(username, email, password)
             return {
                 'message': '{} was registered succesfully!'.format(username),
-                'status': 'ok',
-                'password': password
+                'status': 'ok'
             }, 201
 
         except Exception as my_exception:
