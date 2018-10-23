@@ -7,14 +7,27 @@
 
 Store Manager is a web application that helps store owners manage sales and product inventory records. This application is meant for use in a single store.
 
+# HEROKU LINK
+http://store-manager-api-2.herokuapp.com
 
-# API Design
+
+# DOCUMENTATION LINK
+https://storemanagerapi.docs.apiary.io/#
+
+
+# PIVOTAL TRACKER STORIES LINK
+https://www.pivotaltracker.com/n/projects/2203237
+
+
+
+# API DESIGN
 
 The api is constructed using python flask and flask restful
 
 Testing is done using unittest
 
-Test coverage is done using pytest-cov
+Test coverage is done using `pytest-cov`
+
 
 # Installation and Running the app
 
@@ -28,9 +41,7 @@ Activate the virtual environment on mac by `$ source env\bin\activate`
 
 Activate the virtual environment on windows by `env/scripts/activate`
 
-Install the dependencis needed by doing `$ pip install -r requirements.txt`
-
-Install flask  and flask-restful `pip install flask flask-restful`
+Install the dependencies needed by doing `$ pip install -r requirements.txt`
 
 Then setup the app in the terminal `$ export FLASK_APP=run.py`
 
@@ -38,7 +49,23 @@ Run using `python run.py`
 
 open your localhost
 
-# Features
+open in postman
+
+
+# TESTING THE APP
+
+Test the endpoints using Postman
+
+Download [Postman](https://www.getpostman.com/)
+
+Copy the link http://127.0.0.1:5000/ into postman if running on your machine locally.
+
+If using the heroku link, copy the link into postman.
+
+Add endpoints as defined in the [documentation](https://storemanagerapi.docs.apiary.io/#)
+
+
+# FEATURES
 
 Store attendant can search and add products to buyer’s cart.
 
@@ -63,15 +90,4 @@ GET /sales/saleId | http://127.0.0.1:5000/api/v1/sales/<int: salesId> | Fetch a 
 POST /products| http://127.0.0.1:5000/api/v1/products | Create a product
 POST /sales | http://127.0.0.1:5000/api/v1/sales | Create a sale order
 
-# TESTING THE APP
 
-Test the endpoints using Postman
-
-# HEROKU LINK
-http://store-manager-api-2.herokuapp.com
-
-# DOCUMENTATION LINK
-https://storemanagerapi.docs.apiary.io/#
-
-# PIVOTAL TRACKER STORIES LINK
-https://www.pivotaltracker.com/n/projects/2203237
