@@ -51,6 +51,8 @@ class GetAllProducts(Resource):
     @jwt_required
     def get(self):
         products = Product.get_products()
+        if len(products) == 0:
+            return {'message': "No products created yet."}
         return {
             'message': 'Products successfully retrieved!',
             'products': products

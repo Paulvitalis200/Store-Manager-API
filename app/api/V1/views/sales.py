@@ -46,6 +46,8 @@ class GetAllSales(Resource):
     @jwt_required
     def get(self):
         result = Sale.get_all_sales()
+        if len(cart) == 0:
+            return {'message': "No sales records created yet."}
         return {
             'message': 'Sales records retrieved successfully!',
             'status': 'ok',
