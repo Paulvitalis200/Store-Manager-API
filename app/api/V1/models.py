@@ -1,6 +1,5 @@
-from flask import jsonify, request, Blueprint, make_response
-
-from flask_restful import Resource, Api, reqparse
+from flask import request
+from flask_restful import Resource, reqparse
 from passlib.hash import pbkdf2_sha256 as sha256
 
 
@@ -25,8 +24,7 @@ class User():
             'id': id,
             'username': username,
             'email': email,
-            'password': password,
-            'role': role
+            'password': password
         }
         userList.append(new_user)
         return userList
@@ -34,20 +32,12 @@ class User():
     # find if email exists
     @staticmethod
     def find_by_email(email):
-        for user in userList:
-            listOfKeys = [key for (key, value) in user.items() if value == email]
-            if listOfKeys:
-                return 1
-            return 0
+        return next((user for user in userList if user['email'] == email), False)
 
     # find if username exists
     @staticmethod
     def find_by_username(username):
-        for user in userList:
-            listOfKeys = [key for (key, value) in user.items() if value == username]
-            if listOfKeys:
-                return 1
-            return 0
+        return next((user for user in userList if user["username"] == username), False)
 
      # generate hash
     @staticmethod
@@ -88,8 +78,7 @@ class Product():
 # Get a single product
     @staticmethod
     def get_each_product(product_id):
-        product_index = product_id - 1
-        return products[product_index]
+        return products[product_id - 1]
 
 
 class Sale():
@@ -101,8 +90,7 @@ class Sale():
         order = {
             'id': id,
             'description': description,
-            'items': items,
-
+            'items': items
         }
         cart.append(order)
         return cart
@@ -117,5 +105,4 @@ class Sale():
 # fetch a single sale
     @staticmethod
     def get_each_sale(sale_id):
-        sale_index = sale_id - 1
-        return cart[sale_index]
+        return cart[sale_id - 1]

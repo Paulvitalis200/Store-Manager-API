@@ -25,43 +25,43 @@ class UserTestCase(unittest.TestCase):
         self.register_user_empty_username = {"email": "test@live.com", "password": "123456789", "username": ""}
         self.login_user = {"email": "vitalispaul48@live.com", "password": "manu2012"}
 
-    def test_sign_up_success(self):
+    def test_register_success(self):
         """TEST user can register successfully"""
         res = self.client.post(REGISTER_URL, data=json.dumps(self.register_user),
                                content_type='application/json')
         resp_data = json.loads(res.data.decode())
         self.assertEqual(res.status_code, 201)
-        self.assertEqual(resp_data['message'], 'User was created succesfully!')
+        self.assertEqual(resp_data['message'], '{} was registered succesfully!'.format(self.register_user["username"]))
 
-    def test_sign_up_empty_email(self):
+    def test_register_empty_email(self):
         """TEST empty email sign up"""
         res = self.client.post(REGISTER_URL, data=json.dumps(self.register_user_empty_email),
                                content_type='application/json')
         resp_data = json.loads(res.data.decode())
         self.assertEqual(res.status_code, 400)
 
-    def test_sign_up_invalid_email(self):
+    def test_register_invalid_email(self):
         """TEST invalid email"""
         res = self.client.post(REGISTER_URL, data=json.dumps(self.register_user_invalid_email),
                                content_type='application/json')
         resp_data = json.loads(res.data.decode())
         self.assertEqual(res.status_code, 400)
 
-    def test_sign_up_empty_username(self):
+    def test_register_empty_username(self):
         """TEST empty username in signup"""
         res = self.client.post(REGISTER_URL, data=json.dumps(self.register_user_empty_username),
                                content_type='application/json')
         resp_data = json.loads(res.data.decode())
         self.assertEqual(res.status_code, 400)
 
-    def test_sign_up_empty_password(self):
+    def test_register_empty_password(self):
         """TEST empty sign up password"""
         res = self.client.post(REGISTER_URL, data=json.dumps(self.register_user_empty_password),
                                content_type='application/json')
         resp_data = json.loads(res.data.decode())
         self.assertEqual(res.status_code, 400)
 
-    def test_sign_up_short_password(self):
+    def test_register_short_password(self):
         """TEST short sign up password"""
         res = self.client.post(REGISTER_URL, data=json.dumps(self.register_user_short_password),
                                content_type='application/json')
@@ -75,7 +75,7 @@ class UserTestCase(unittest.TestCase):
         resp_data = json.loads(res_login.data.decode())
         self.assertTrue(resp_data['access_token'])
         self.assertEqual(res_login.status_code, 200)
-        self.assertEqual(resp_data['message'], 'User logged in succesfully!')
+        self.assertEqual(resp_data['message'], 'Log in successful!')
 
     def test_login_empty_email(self):
         """TEST empty email on login"""

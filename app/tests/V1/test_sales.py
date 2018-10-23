@@ -1,4 +1,5 @@
 import unittest
+
 from flask import json
 
 from app import create_app
@@ -15,12 +16,12 @@ class SalesTest(unittest.TestCase):
     self.client = self.app.test_client()
     self.sales = {
         "description": "Piano black",
-        "items": {"id": 1, "name": "Playstation 4", "price": 20000, "quantity": 3}
+        "items": {"id": 1, "name": "Playstation 4", "price": 20000, "total": 3}
     }
 
     self.empty_sale_description = {
         "description": "",
-        "items": {"id": 1, "name": "Playstation 4", "price": 20000, "quantity": 3}
+        "items": {"id": 1, "name": "Playstation 4", "price": 20000, "total": 3}
     }
     self.empty_sale_items = {
         "description": "Piano black",
@@ -85,7 +86,7 @@ class SalesTest(unittest.TestCase):
                            headers=dict(Authorization="Bearer " + self.login())
                            )
     resp_data = json.loads(res.data.decode())
-    self.assertTrue(resp_data['message'] == 'Sale description can not be empty')
+    self.assertTrue(resp_data['message'] == 'Sale description cannot be empty')
     self.assertEqual(res.status_code, 400)
 
   def test_empty_sale_items(self):
@@ -95,7 +96,7 @@ class SalesTest(unittest.TestCase):
                            headers=dict(Authorization="Bearer " + self.login())
                            )
     resp_data = json.loads(res.data.decode())
-    self.assertTrue(resp_data['message'] == 'Sale items can not be empty')
+    self.assertTrue(resp_data['message'] == 'Sale items cannot be empty')
     self.assertEqual(res.status_code, 400)
 
   def test_create_sale(self):
