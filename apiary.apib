@@ -18,6 +18,69 @@ ENDPOINTS
 **POST /register - Register user**
 
 
+### Register a user[POST]
+
+You may register a user
+
++ Request (application/json)
+
+        
+            {
+                "username": "Paul200",
+                "email": "vitalispaul49@live.com,
+                "password": "paul200"
+                
+            }
+        
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: api/v1/register
+
+    + Body
+
+            
+              {
+                "username": "Paul200",
+                "email": "vitalispaul49@live.com,
+                "password": "paul200"
+                
+            }
+         
+            
+            
+### Log in user [POST]
+
++ Response 200 (application/json)
+
+        
+
++ Request (application/json)
+
+        
+            {
+                "email": "vitalispaul49@live.com
+                "password": "paul200"
+            }
+        
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: api/v1/login
+
+    + Body
+
+            
+               {
+                "email": "vitalispaul49@live.com
+                "password": "paul200",
+                }
+
+
 ### Create a Product[POST]
 
 You may post a product
@@ -94,8 +157,7 @@ You may post a sale record
            {
             
             'description': "Piano black",
-            'items': "Playstation",
-
+            'items': "Playstation"
         }
         
 
@@ -110,7 +172,7 @@ You may post a sale record
             
                {
             'description': "Piano black",
-            'items': "Playstation",
+            'items': "Playstation"
         }
          
             
@@ -123,12 +185,12 @@ You may post a sale record
             {
                 "id": 1
                 "description": "Piano black",
-                "item": "Playstation 4
+                "items": "Playstation 4
             },
             {
                 "id": 2
                 "description": "Piano black",
-                "item": "Playstation 4
+                "items": "Playstation 4
             }
         ]
         
@@ -146,67 +208,3 @@ You may post a sale record
                 "description": "Piano black",
                 "item": "Playstation 4
             }
-            
-        
-
-### Register a user[POST]
-
-You may register a user
-
-+ Request (application/json)
-
-        
-            {
-                "username": "Paul200",
-                "email": "vitalispaul49@live.com
-                "password": "paul200",
-                "confirm_password": "paul200"
-            }
-        
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: api/v1/register
-
-    + Body
-
-            
-              {
-                "username": "Paul200",
-                "email": "vitalispaul49@live.com
-                "password": "paul200",
-                "confirm_password": "paul200"
-            }
-         
-            
-            
-### Log in user [POST]
-
-+ Response 200 (application/json)
-
-        
-
-+ Request (application/json)
-
-        
-            {
-                "email": "vitalispaul49@live.com
-                "password": "paul200"
-            }
-        
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: api/v1/login
-
-    + Body
-
-            
-               {
-                "email": "vitalispaul49@live.com
-                "password": "paul200",
-                }
