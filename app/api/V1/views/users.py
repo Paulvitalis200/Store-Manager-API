@@ -67,14 +67,8 @@ class UserLogin(Resource):
         password = args.get('password').strip()  # remove whitespace
         email = args.get('email').strip()  # remove whitespace
         payload = ['password', 'email']
-        if not email:
-            return {
-                'message': 'email field cannot be empty'
-            }, 400
-        elif not password:
-            return {
-                'message': 'password field cannot be empty'
-            }, 400
+        if not email or not password:
+            return {'message': 'You must input an email and a password'}, 400
         else:
             for item in data.keys():
                 if item not in payload:
@@ -82,13 +76,9 @@ class UserLogin(Resource):
 
         # check if user by the email exists
         current_user = User.find_by_email(email)
-        if current_user == False:
-            return {
-                'message': 'User with that email does not exist.'
-            }, 400
 
         # compare user's password and the hashed password
-        if User.verify_hash(password, email) == True:
+        if User.verify_hash(password, email) == True and current_user != False:
             access_token = create_access_token(identity=email, expires_delta=datetime.timedelta(days=5))
             return {
                 'message': 'Log in successful!',
@@ -97,7 +87,7 @@ class UserLogin(Resource):
             }, 200
         else:
             return {
-                'message': 'Incorrect email or password. Try again'
+                'message': 'That user does not exist or Incorrect email or password. Try again'
             }, 400
 
 

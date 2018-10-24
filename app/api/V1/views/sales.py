@@ -19,10 +19,8 @@ class PostSale(Resource):
         payload = ['description', 'items']
 
         # Test inputs
-        if not description:
-            return {'message': 'Sale description cannot be empty'}, 400
-        elif not items:
-            return {'message': 'Sale items cannot be empty'}, 400
+        if not description or not items:
+            return {'message': 'Sale description and sale items required'}, 400
         else:
             # Check if the item is not required
             for each in data.keys():
