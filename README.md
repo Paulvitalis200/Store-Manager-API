@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/Paulstar200/Store-Manager-API.svg?branch=ch-code-refactor-161366157)](https://travis-ci.org/Paulstar200/Store-Manager-API)
-
 [![Coverage Status](https://coveralls.io/repos/github/Paulstar200/Store-Manager-API/badge.svg)](https://coveralls.io/github/Paulstar200/Store-Manager-API)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/1ab011fd725c3486efd1/maintainability)](https://codeclimate.com/github/Paulstar200/Store-Manager-API/maintainability)
 
 # Store-Manager-API
 
@@ -49,7 +48,7 @@ Run using `python run.py`
 
 open your localhost
 
-open in postman
+open in Postman
 
 
 # TESTING THE APP
