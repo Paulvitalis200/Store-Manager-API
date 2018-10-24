@@ -26,18 +26,8 @@ class UserRegistration(Resource):
         email_format = re.compile(r"(^[a-zA-Z0-9_.-]+@[a-zA-Z-]+\.[.a-zA-Z-]+$)")
         username_format = re.compile(r"(^[A-Za-z0-9-]+$)")
 
-        if not email:
-            return {'message': 'Email cannot be empty'}, 400
-        elif not raw_password:
-            return {'message': 'Password cannot be empty'}, 400
-        elif not username:
-            return {'message': 'Username cannot be empty'}, 400
-        elif len(raw_password) < 6:
-            return {'message': 'Password should be at least 6 characters'}, 400
-        elif not (re.match(email_format, email)):
-            return {'message': 'Invalid email'}, 400
-        elif not (re.match(username_format, username)):
-            return {'message': 'Please input only characters and numbers'}, 400
+        if not email or not raw_password or not username or len(raw_password) < 6 or not (re.match(email_format, email)) or not (re.match(username_format, username)):
+            return {'message': 'Please ensure to input all fields validly and password must exceed 6 characters'}, 400
         else:
             # Check if the item is not required
             for item in data.keys():

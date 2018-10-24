@@ -55,7 +55,6 @@ class User():
 
 
 class Product():
-
     # create a new product - admin
     @staticmethod
     def create_product(name, price, quantity):
@@ -82,7 +81,6 @@ class Product():
 
 
 class Sale():
-
     # create a sale record- store attendant
     @staticmethod
     def create_sale(description, items):
