@@ -80,7 +80,7 @@ class ProductTest(unittest.TestCase):
                            headers=dict(Authorization="Bearer " + self.login())
                            )
     data = json.loads(res.get_data().decode("UTF-8"))
-    self.assertTrue(data['message'] == 'Product name cannot be empty')
+    self.assertTrue(data['message'] == 'Product name, price and quantity are all required')
     self.assertEqual(res.status_code, 400)
 
 

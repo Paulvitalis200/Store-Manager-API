@@ -8,17 +8,15 @@ from flask_jwt_extended import create_access_token, jwt_required
 from app.api.V1.models import User, userList
 
 
-parser = reqparse.RequestParser()
-parser.add_argument('username', required=True, help='Username cannot be blank', type=str)
-parser.add_argument('email', required=True, help='Email cannot be blank')
-parser.add_argument('password', required=True, help='Password cannot be blank', type=str)
-
-
 class UserRegistration(Resource):
+    parser = reqparse.RequestParser()
+    parser.add_argument('username', required=True, help='Username cannot be blank', type=str)
+    parser.add_argument('email', required=True, help='Email cannot be blank')
+    parser.add_argument('password', required=True, help='Password cannot be blank', type=str)
 
     def post(self):
         data = request.get_json()
-        args = parser.parse_args()
+        args = UserRegistration.parser.parse_args()
         raw_password = args.get('password').strip()
         username = args.get('username').strip()  # remove all whitespaces from input
         email = args.get('email').strip()  # remove all whitespaces from input
@@ -61,9 +59,13 @@ class UserRegistration(Resource):
 
 
 class UserLogin(Resource):
+    parser = reqparse.RequestParser()
+    parser.add_argument('email', required=True, help='Email cannot be blank')
+    parser.add_argument('password', required=True, help='Password cannot be blank', type=str)
+
     def post(self):
         data = request.get_json()
-        args = parser.parse_args()
+        args = UserLogin.parser.parse_args()
         password = args.get('password').strip()  # remove whitespace
         email = args.get('email').strip()  # remove whitespace
         payload = ['password', 'email']
