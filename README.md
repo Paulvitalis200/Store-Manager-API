@@ -2,7 +2,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/Paulstar200/Store-Manager-API/badge.svg)](https://coveralls.io/github/Paulstar200/Store-Manager-API)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/Paulstar200/Store-Manager-API/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/Paulstar200/Store-Manager-API/maintainability)
 
 # Store-Manager-API
 
