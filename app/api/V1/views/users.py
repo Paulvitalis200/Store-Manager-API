@@ -47,8 +47,7 @@ class UserRegistration(Resource):
         try:
             result = User.create_user(username, email, password)
             return {
-                'message': '{} was registered succesfully!'.format(username),
-                'status': 'ok'
+                'message': '{} was registered succesfully!'.format(username)
             }, 201
 
         except Exception as my_exception:
@@ -84,8 +83,7 @@ class UserLogin(Resource):
             access_token = create_access_token(identity=email, expires_delta=datetime.timedelta(days=5))
             return {
                 'message': 'Log in successful!',
-                'status': 'ok',
-                'access_token': access_token,
+                'access_token': access_token
             }, 200
         else:
             return {
