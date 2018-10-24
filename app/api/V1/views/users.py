@@ -8,15 +8,17 @@ from flask_jwt_extended import create_access_token, jwt_required
 from app.api.V1.models import User, userList
 
 
+parser = reqparse.RequestParser()
+parser.add_argument('username', required=True, help='Username cannot be blank', type=str)
+parser.add_argument('email', required=True, help='Email cannot be blank')
+parser.add_argument('password', required=True, help='Password cannot be blank', type=str)
+
+
 class UserRegistration(Resource):
-    parser = reqparse.RequestParser()
-    parser.add_argument('username', required=True, help='Username cannot be blank', type=str)
-    parser.add_argument('email', required=True, help='Email cannot be blank')
-    parser.add_argument('password', required=True, help='Password cannot be blank', type=str)
 
     def post(self):
         data = request.get_json()
-        args = UserRegistration.parser.parse_args()
+        args = parser.parse_args()
         raw_password = args.get('password').strip()
         username = args.get('username').strip()  # remove all whitespaces from input
         email = args.get('email').strip()  # remove all whitespaces from input
@@ -35,18 +37,10 @@ class UserRegistration(Resource):
                     return {"message": "The field '{}' is not required for registration".format(item)}, 400
 
         # Check if user by the email exists
-        current_user = User.find_by_username(username)
-        if current_user != False:
-            return {
-                'message': 'A user with that username already exists.'
-            }, 400
-
-        # Check if user by the email exists
-        current_user = User.find_by_email(email)
-        if current_user != False:
-            return {
-                "message": "A user with that email already exists."
-            }, 400
+        current_user_by_username = User.find_by_username(username)
+        current_user_by_email = User.find_by_email(email)
+        if current_user_by_username != False or current_user_by_email != False:
+            return {'message': 'A user with that username or email already exists.'}
 
         # Generate hash for user password
         password = User.generate_hash(raw_password)
@@ -67,13 +61,9 @@ class UserRegistration(Resource):
 
 
 class UserLogin(Resource):
-    parser = reqparse.RequestParser()
-    parser.add_argument('email', required=True, help='Email cannot be blank')
-    parser.add_argument('password', required=True, help='Password cannot be blank')
-
     def post(self):
         data = request.get_json()
-        args = UserLogin.parser.parse_args()
+        args = parser.parse_args()
         password = args.get('password').strip()  # remove whitespace
         email = args.get('email').strip()  # remove whitespace
         payload = ['password', 'email']
