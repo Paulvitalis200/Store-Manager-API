@@ -80,28 +80,8 @@ class ProductTest(unittest.TestCase):
                            headers=dict(Authorization="Bearer " + self.login())
                            )
     data = json.loads(res.get_data().decode("UTF-8"))
-    self.assertTrue(data['message'] == 'Product name cannot be empty')
+    self.assertTrue(data['message'] == 'Product name, price and quantity are all required')
     self.assertEqual(res.status_code, 400)
-
-  # def test_empty_price(self):
-  #   res = self.client.post(POST_PRODUCT_URL,
-  #                          content_type='application/json',
-  #                          data=json.dumps(self.empty_price),
-  #                          headers=dict(Authorization="Bearer " + self.login())
-  #                          )
-  #   data = json.loads(res.get_data().decode("UTF-8"))
-  #   self.assertTrue(data['message'] == 'Price of product cannot be empty')
-  #   self.assertEqual(res.status_code, 400)
-
-  # def test_empty_quantity(self):
-  #   res = self.client.post(POST_PRODUCT_URL,
-  #                          content_type='application/json',
-  #                          data=json.dumps(self.empty_quantity),
-  #                          headers=dict(Authorization="Bearer " + self.login())
-  #                          )
-  #   data = json.loads(res.get_data().decode("UTF-8"))
-  #   self.assertTrue(data['message'] == 'Quantity of product cannot be empty')
-  #   self.assertEqual(res.status_code, 400)
 
 
 if __name__ == "__main__":

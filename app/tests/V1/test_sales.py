@@ -86,7 +86,7 @@ class SalesTest(unittest.TestCase):
                            headers=dict(Authorization="Bearer " + self.login())
                            )
     resp_data = json.loads(res.data.decode())
-    self.assertTrue(resp_data['message'] == 'Sale description cannot be empty')
+    self.assertTrue(resp_data['message'] == 'Sale description and sale items required')
     self.assertEqual(res.status_code, 400)
 
   def test_empty_sale_items(self):
@@ -96,7 +96,7 @@ class SalesTest(unittest.TestCase):
                            headers=dict(Authorization="Bearer " + self.login())
                            )
     resp_data = json.loads(res.data.decode())
-    self.assertTrue(resp_data['message'] == 'Sale items cannot be empty')
+    self.assertTrue(resp_data['message'] == 'Sale description and sale items required')
     self.assertEqual(res.status_code, 400)
 
   def test_create_sale(self):

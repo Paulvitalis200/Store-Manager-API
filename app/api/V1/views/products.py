@@ -21,12 +21,8 @@ class PostProduct(Resource):
         quantity = args.get('quantity')
         payload = ['name', 'price', 'quantity']
 
-        if not name:
-            return {'message': 'Product name cannot be empty'}, 400
-        elif not price:
-            return {'message': 'Price of product cannot be empty'}, 400
-        elif not quantity:
-            return {'message': 'Quantity of product cannot be empty'}, 400
+        if not name or not price or not quantity:
+            return {'message': 'Product name, price and quantity are all required'}, 400
         else:
             # Check if the item is not required
             for item in data.keys():
