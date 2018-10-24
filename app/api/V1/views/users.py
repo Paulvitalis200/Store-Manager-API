@@ -68,12 +68,10 @@ class UserLogin(Resource):
         password = args.get('password').strip()  # remove whitespace
         email = args.get('email').strip()  # remove whitespace
         payload = ['password', 'email']
-        if not email or not password:
-            return {'message': 'You must input an email and a password'}, 400
-        else:
-            for item in data.keys():
-                if item not in payload:
-                    return {"message": "The field '{}' is not required for login".format(item)}, 400
+
+        for item in data.keys():
+            if item not in payload:
+                return {"message": "The field '{}' is not required for login".format(item)}, 400
 
         # check if user by the email exists
         current_user = User.find_by_email(email)
