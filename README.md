@@ -48,7 +48,7 @@ Run using `python run.py`
 
 open your localhost
 
-open Postman to test
+open Postman to test.
 
 
 # TESTING THE APP
