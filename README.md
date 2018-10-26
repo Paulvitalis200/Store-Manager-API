@@ -82,11 +82,11 @@ Store owner can give admin rights to a store attendant.
 # EndPoint Functionality
 Method | URL | DESCRIPTION
 -------|-----|------------
-GET /products| http://127.0.0.1:5000/api/v1/products | Fetch all products
-GET /products/productId |http://127.0.0.1:5000/api/v1/products/<int: productId>| Fetch a single product record
-GET /sales |http://127.0.0.1:5000/api/v1/sales|Fetch all sale records Get all sale records.
-GET /sales/saleId | http://127.0.0.1:5000/api/v1/sales/<int: salesId> | Fetch a single sale record
-POST /products| http://127.0.0.1:5000/api/v1/products | Create a product
-POST /sales | http://127.0.0.1:5000/api/v1/sales | Create a sale order
+GET /products| http://store-manager-api-2.herokuapp.com/api/v1/products | Fetch all products
+GET /products/productId |http://store-manager-api-2.herokuapp.com/api/v1/products/<int: productId>| Fetch a single product record
+GET /sales |http://store-manager-api-2.herokuapp.com/api/v1/sales|Fetch all sale records Get all sale records.
+GET /sales/saleId | http://store-manager-api-2.herokuapp.com/api/v1/sales/<int: salesId> | Fetch a single sale record
+POST /products|http://store-manager-api-2.herokuapp.com/api/v1/products | Create a product
+POST /sales | http://store-manager-api-2.herokuapp.com/api/v1/sales | Create a sale order
 
 
